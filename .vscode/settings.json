@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "array": "cpp",
+        "string_view": "cpp",
+        "utility": "cpp",
+        "*.tcc": "cpp",
+        "stack": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "queue": "cpp",
+        "cmath": "cpp"
+    }
+}
