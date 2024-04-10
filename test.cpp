@@ -1,50 +1,68 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-const int N = 15;
-
-bool row[15], col[15], dig[30], udig[30];
-int n;
-int cnt;
-int v[15];
-
-void dfs(int u) {
-   if(u == n) {
-      cnt++;
-      if(cnt <= 3) {
-         for(int i = 1; i <= n; i++) cout << v[i] << " "; 
-         puts("");
-      }
-      return;
-   }
-
-   for(int i = 1; i <= n; i++) {
-      if(!col[i] && !dig[u + i] && !udig[u - i + n]) {
-         col[i] = 1;
-         dig[u + i] = 1;
-         udig[u - i + n] = 1; 
-         v[u] = i;
-         dfs(u + 1);
-         col[i] = 0;
-         dig[u + i] = 0;
-         udig[u - i + n] = 0; 
-      }
-   }
-}
-
-
 
 int main()
 {
-   cin >> n;
+   queue<int> hong, ming;
+   int h[6] = {3, 1, 3, 5, 6, 4};
+   int m[6] = {2, 4, 1, 2, 5, 6};
 
-   memset(row, 0, sizeof(row));
-   memset(dig, 0, sizeof(dig));
-   memset(udig, 0, sizeof(udig));
+   // 初始化两个队列
+   for(int i : h) hong.push(i);         
+   for(int i : m) ming.push(i);
 
-   cnt = 0;
-   dfs(1);
-   cout << cnt;
+   bool card[15];           // 代表有哪些牌已经出过
+   bool f = 1;                // f = true代表小明出牌
+
+   stack<int> st;             // 代表桌面上的牌
+
+   st.push(ming.front());     // 小明先出牌
+   card[st.top()] = 1;        // 改变卡牌状态
+   ming.pop();                // 出队
+   
+
+   while(st.size()) {
+      if(!f) {             // 小红的回合
+         int cd = hong.front();     // 记录要出的牌
+         if(card[cd]) {             // 如果这张牌出过, 那么栈上存在这张牌，
+            while(st.top() != cd) {    // 把这两张相同牌之间的牌重新加到队列
+               hong.push(st.top());
+               card[st.top()] = 0;
+               st.pop();
+            }
+            hong.push(st.top());
+            card[st.top()] = 0;
+            st.pop();
+         } else {          // 如果没出过
+            st.push(cd);
+            card[cd] = 1;
+            hong.pop();
+         }
+         f = !f;           // 改变回合
+      } else {
+         int cd = ming.front();     // 记录要出的牌
+         if(card[cd]) {             // 如果这张牌出过, 那么栈上存在这张牌，
+            while(st.top() != cd) {    // 把这两张相同牌之间的牌重新加到队列
+               ming.push(st.top());
+               card[st.top()] = 0;
+               st.pop();
+            }
+            ming.push(st.top());
+            card[st.top()] = 0;
+            st.pop();
+         } else {          // 如果没出过
+            st.push(cd);
+            card[cd] = 1;
+            ming.pop();
+         }
+         f = !f;           // 改变回合    
+      }
+   }
+   
+   // 如果是小明的回合， 说明最后一张牌是小红收走的
+   if(f) cout << "hong win" << endl;
+   else cout << "ming win" << endl;
 
    return 0;
 }
