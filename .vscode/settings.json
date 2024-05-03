@@ -8,6 +8,7 @@
         "deque": "cpp",
         "vector": "cpp",
         "queue": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "numeric": "cpp"
     }
 }
