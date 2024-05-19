@@ -9,6 +9,7 @@
         "vector": "cpp",
         "queue": "cpp",
         "cmath": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "unordered_map": "cpp"
     }
 }
