@@ -1,15 +1,8 @@
-// @lcpr-before-debug-begin
-
-
-
-
-// @lcpr-before-debug-end
-
 /*
- * @lc app=leetcode.cn id=496 lang=cpp
- * @lcpr version=30121
+ * @lc app=leetcode.cn id=2951 lang=cpp
+ * @lcpr version=30202
  *
- * [496] 下一个更大元素 I
+ * [2951] 找出峰值
  */
 
 
@@ -34,9 +27,16 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
-    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        
+    vector<int> findPeaks(vector<int>& mountain) {
+        vector<int> ans;
+        int len = mountain.size();
 
+        for(int i = 1; i < len - 1; i ++) {
+            if(mountain[i] > mountain[i - 1] && mountain[i] > mountain[i + 1])
+                ans.push_back(i);
+        }
+
+        return ans;
     }
 };
 // @lc code=end
@@ -45,11 +45,11 @@ public:
 
 /*
 // @lcpr case=start
-// [4,1,2]\n[1,3,4,2].\n
+// [2,4,4]\n
 // @lcpr case=end
 
 // @lcpr case=start
-// [2,4]\n[1,2,3,4].\n
+// [1,4,3,8,5]\n
 // @lcpr case=end
 
  */

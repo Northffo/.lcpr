@@ -10,6 +10,7 @@
         "queue": "cpp",
         "cmath": "cpp",
         "numeric": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "list": "cpp"
     }
 }
