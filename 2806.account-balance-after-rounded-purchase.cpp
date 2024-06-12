@@ -1,15 +1,8 @@
-// @lcpr-before-debug-begin
-
-
-
-
-// @lcpr-before-debug-end
-
 /*
- * @lc app=leetcode.cn id=575 lang=cpp
+ * @lc app=leetcode.cn id=2806 lang=cpp
  * @lcpr version=30203
  *
- * [575] 分糖果
+ * [2806] 取整购买后的账户余额
  */
 
 
@@ -29,29 +22,28 @@ using namespace std;
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
+#include <cmath>
 #include <vector>
 // @lcpr-template-end
 // @lc code=start
 class Solution {
 public:
-    int distributeCandies(vector<int>& candyType) {
-        return min(unordered_set<int>(candyType.begin(), candyType.end()).size(), candyType.size() / 2);
-
+    int accountBalanceAfterPurchase(int purchaseAmount) {
+        int cnt = (purchaseAmount + 5) / 10;
+        return 100 - cnt *10;
     }
 };
 // @lc code=end
 
+
+
 /*
 // @lcpr case=start
-// [1,1,2,2,3,3]\n
+// 9\n
 // @lcpr case=end
 
 // @lcpr case=start
-// [1,1,2,3]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [6,6,6,6]\n
+// 15\n
 // @lcpr case=end
 
  */

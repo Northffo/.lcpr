@@ -1,15 +1,8 @@
-// @lcpr-before-debug-begin
-
-
-
-
-// @lcpr-before-debug-end
-
 /*
- * @lc app=leetcode.cn id=575 lang=cpp
+ * @lc app=leetcode.cn id=3072 lang=cpp
  * @lcpr version=30203
  *
- * [575] 分糖果
+ * [3072] 将元素分配到两个数组中 II
  */
 
 
@@ -34,24 +27,25 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
-    int distributeCandies(vector<int>& candyType) {
-        return min(unordered_set<int>(candyType.begin(), candyType.end()).size(), candyType.size() / 2);
-
+    vector<int> resultArray(vector<int>& nums) {
+        
     }
 };
 // @lc code=end
 
+
+
 /*
 // @lcpr case=start
-// [1,1,2,2,3,3]\n
+// [2,1,3,3]\n
 // @lcpr case=end
 
 // @lcpr case=start
-// [1,1,2,3]\n
+// [5,14,3,1,2]\n
 // @lcpr case=end
 
 // @lcpr case=start
-// [6,6,6,6]\n
+// [3,3,3,3]\n
 // @lcpr case=end
 
  */

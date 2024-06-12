@@ -1,15 +1,8 @@
-// @lcpr-before-debug-begin
-
-
-
-
-// @lcpr-before-debug-end
-
 /*
- * @lc app=leetcode.cn id=575 lang=cpp
+ * @lc app=leetcode.cn id=312 lang=cpp
  * @lcpr version=30203
  *
- * [575] 分糖果
+ * [312] 戳气球
  */
 
 
@@ -34,24 +27,29 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
-    int distributeCandies(vector<int>& candyType) {
-        return min(unordered_set<int>(candyType.begin(), candyType.end()).size(), candyType.size() / 2);
+    int maxCoins(vector<int>& nums) {
+        int len = nums.size();
 
+        vector<pair<int, int>> mxc;
+
+        for(int i = 0; i < len; i++) {
+            
+        }
     }
+
+    
 };
 // @lc code=end
 
+
+
 /*
 // @lcpr case=start
-// [1,1,2,2,3,3]\n
+// [3,1,5,8]\n
 // @lcpr case=end
 
 // @lcpr case=start
-// [1,1,2,3]\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [6,6,6,6]\n
+// [1,5]\n
 // @lcpr case=end
 
  */
